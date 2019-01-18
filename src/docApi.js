@@ -1,15 +1,23 @@
 class DocApi {
-  constructor(params) {
-
-
+  constructor() {
+    this.lastResponse = null;
+    this.baseUrl = "https://api.betterdoctor.com/2016-03-01/doctors?";
   }
 
+  call(params) {
 
-  apiCall(params) {
+    let location = 'location=or-portland';
+    let query = `&query=${params['query']}`;
+    let name = `&name=${params['name']}`;
+    let limit = `&limit=${params['limit']}`;
+
+
     let promise = new Promise(function(resolve, reject) {
 
       let request = new XMLHttpRequest();
-      const url = params.url;
+
+      const url = `${this.baseUrl}${location}${query}${name}${limit}${process.env.apiKey}`;
+
       // console.log("pre-request url: " + url);
       request.onload = function() {
         if (this.status === 200) {
@@ -18,7 +26,7 @@ class DocApi {
           console.log(request.statusText);
           reject(Error(request.statusText));
         }
-      }
+      };
       request.open("GET", url, true);
       request.send();
     });

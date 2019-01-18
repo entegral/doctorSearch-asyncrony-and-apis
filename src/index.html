@@ -8,8 +8,8 @@
     <div class="container-fluid">
 
       <div class="jumbotron">
-        <h1 class="display-4">coinSnap</h1>
-        <p class="lead">Welcome to coinSnap, an amnesiatic app to check the pulse of your crypto.</p>
+        <h1 class="display-4">Doctor Finder</h1>
+        <p class="lead"></p>
       </div>
 
       <div class="row">
@@ -20,19 +20,25 @@
               Add some coins to get detailed information on them
             </div>
             <div class="card-body">
-              <form id="coinForm">
-                <div id="coinDropdown" class="form-group">
+              <form id="doctorForm">
 
+                <div class="form-group">
+                  <label for="">What is your ailment?</label>
+                  <input id="ailment" class="form-control" type="text" placeholder="Required">
                 </div>
-                <button class="btn btn-primary" type="submit" name="button">Add Coin</button>
+
+                <div class="form-group">
+                  <label for="">What is the name of your preferred doctor?</label>
+                  <input id="docName" class="form-control" type="text" placeholder="Optional">
+                </div>
+
+                <button class="btn btn-primary" type="submit" name="button">Search Doctors</button>
               </form>
             </div>
-            <p class="card-text">Total Portfolio Value (USD)</p>
-            <p id="portfolioValue" cass="card-text"></p>
           </div>
         </div>
 
-        <div class="col-md-9" id="coinCards">
+        <div class="col-md-9" id="doctorCards">
 
         </div>
       </div>
