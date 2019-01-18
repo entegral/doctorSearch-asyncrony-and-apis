@@ -17,6 +17,18 @@ let UiHelper = {
     return select;
   },
 
+  errorCard: function(document, error){
+    console.log(error);
+    let doctorCardDiv = document.getElementById('doctorCards');
+    let p = document.createElement('p');
+
+    p.innerHTML = "The system has returned an error, please try again."
+
+    doctorCardDiv.append(p);
+    return p;
+
+  },
+
   createCard: function(document, clinic){
     let doctorCardDiv = document.getElementById('doctorCards');
     let cardDiv = document.createElement('div');
