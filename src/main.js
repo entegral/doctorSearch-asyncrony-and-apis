@@ -20,7 +20,8 @@ document.addEventListener('readystatechange', event => {
       let params = {};
       params.query = document.getElementById('ailment').value;
       params.limit = 10;
-      // params.name = document.getElementById('name').value;
+      params.first_name = document.getElementById('first_name').value;
+      params.last_name = document.getElementById('last_name').value;
 
       api.lastResponse = test;
       console.log(api.lastResponse);
@@ -36,9 +37,10 @@ document.addEventListener('readystatechange', event => {
       // searchPromise
       //   .then(function(unparsedApiResponse){
       //     api.lastResponse = JSON.parse(unparsedApiResponse);
+      //     console.log(api.lastResponse);
       //     document.getElementById('doctorCards').innerHTML = '';
       //
-      //     for (let i = 0; i < 10; i++){
+      //     for (let i = 0; i < api.lastResponse.data.length; i++){
       //       let clinic = api.lastResponse.data[i];
       //       UiHelper.createCard(document, clinic);
       //     }

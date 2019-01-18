@@ -30,6 +30,7 @@ let UiHelper = {
       <div class="card-body">
         <p class="card-text desc" style="display: block;">Click to Show Bio</p>
         <p class="card-text bio" style="display: none;">${clinic.profile.bio}</p>
+        <p class="card-text">${clinic.practices[0].accepts_new_patients ? "Accepting Patients" : "Not Accepting Patients"}</p>
         <h5 class="card-title">${clinic.practices[0].visit_address.city}, ${clinic.practices[0].visit_address.state}</h5>
         <p class="card-text">${clinic.practices[0].visit_address.street}</p>
         <p class="card-text">${clinic.practices[0].visit_address.zip}</p>

@@ -2,26 +2,32 @@
 
   #### By Robert Bruce
 
-  ## a website where users may enter a medical issue (ie: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of doctors in your city (Portland or Seattle depending on where you are) who can treat their medical issue.
+  ## Description
+
+  This is website where users may enter a medical issue (ie: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of doctors in your city (Portland or Seattle depending on where you are) who can treat their medical issue.
 
   ## Setup/Installation Requirements
 
-  * In the command line, clone this repository with
+  * In the command line, clone this repository
   ```
-  $ git clone
+  $ git clone <url-of-this-repo>
+  ```
+
+  * Add your .env file to root of directory
+  ```
+  $ touch .env
+  $ "API_KEY=<your-api-key>" >> .env
   ```
 
   * To open the application in Chrome, use command
   ```
+  $ npm install
   $ npm run start
   ```
-  * To run the test suite, use command
-  ```
-  $ npm test
-  ```
+
 
   ## Learning Objectives
-  
+
   [] - A user should be able to enter a medical issue to receive a list of doctors in the Portland area that fit the search query.
 
   [] - A user should be able to to enter a name to receive a list of doctors in the Portland area that fit the search query.
