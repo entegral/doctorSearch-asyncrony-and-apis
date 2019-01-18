@@ -40,21 +40,8 @@ document.addEventListener('readystatechange', event => {
             coin.volume = parsedJson['volume'];
             coin.marketcap = parsedJson['market_cap'];
             Ui.createCoinCard(document,coin);
-
-            // });;
-        //   return coin;
-        // })
-        // .then(function(coin) {
-        //   // console.log("unparsed ",unparsedCoinApiDataPromise);
-        //   // console.log(unparsedCoinApiDataPromise);
-        //   // let parsedCoinData = JSON.parse(unparsedCoinApiDataPromise);
-        //   // console.log("newestCoin", parsedCoinData['id']);
-        //   // let coin = portfolio.findPortfolioCoinById(parsedCoinData['id']);
-        //   console.log("coin from then()", coin);
-        //   Ui.createCoinCard(document,coin);
+          });
         });
-      });
-
     });
   }
 });
