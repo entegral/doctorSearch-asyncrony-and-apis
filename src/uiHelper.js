@@ -19,19 +19,28 @@ let UiHelper = {
 
   errorCard: function(document, error){
     console.log(error);
-    let doctorCardDiv = document.getElementById('doctorCards');
-    let p = document.createElement('p');
+    const doctorCardDiv = document.getElementById('doctorCards');
+    const p = document.createElement('p');
 
-    p.innerHTML = "The system has returned an error, please try again."
-
+    p.innerHTML = "The system has returned an error, please try again.";
+    doctorCardDiv.innerHTML = "";
     doctorCardDiv.append(p);
     return p;
+  },
 
+  noDoctors: function(document){
+    const doctorCardDiv = document.getElementById('doctorCards');
+    const p = document.createElement('p');
+
+    p.innerHTML = "Your search returned no results. Try using different parameters.";
+    doctorCardDiv.innerHTML = "";
+    doctorCardDiv.append(p);
+    return p;
   },
 
   createCard: function(document, clinic){
-    let doctorCardDiv = document.getElementById('doctorCards');
-    let cardDiv = document.createElement('div');
+    const doctorCardDiv = document.getElementById('doctorCards');
+    const cardDiv = document.createElement('div');
     console.log("starting on", clinic);
     cardDiv.classList.add('card');
     cardDiv.classList.add('doctor');
@@ -53,17 +62,18 @@ let UiHelper = {
       </div>`;
 
     cardDiv.addEventListener('click', function() {
-      let bio = cardDiv.querySelectorAll('.bio')[0]
-      let desc = cardDiv.querySelectorAll('.desc')[0]
+      let bio = cardDiv.querySelectorAll('.bio')[0];
+      let desc = cardDiv.querySelectorAll('.desc')[0];
       console.log(bio);
       if (bio.style.display === "none") {
         bio.style.display = "block";
         desc.style.display = "none";
       } else {
         bio.style.display = "none";
-        desc.style.display = "block"
+        desc.style.display = "block";
       }
-    })
+    });
+
     doctorCardDiv.append(cardDiv);
 
     return cardDiv;

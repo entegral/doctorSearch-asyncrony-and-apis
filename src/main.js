@@ -36,14 +36,16 @@ document.addEventListener('readystatechange', event => {
       let searchPromise = api.call(params);
       searchPromise
         .then(function(unparsedApiResponse){
+          api.lastResponse = JSON.parse(unparsedApiResponse);
 
           if (unparsedApiResponse instanceof Error){
             UiHelper.errorCard(document, unparsedApiResponse);
-          } else {
-
-            api.lastResponse = JSON.parse(unparsedApiResponse);
+          }
+          else if (api.lastResponse.data.length === 0) {
+            UiHelper.noDoctors(document);
+          }
+          else {
             console.log(api.lastResponse);
-
             document.getElementById('doctorCards').innerHTML = '';
 
             for (let i = 0; i < api.lastResponse.data.length; i++){
