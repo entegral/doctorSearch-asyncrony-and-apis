@@ -1,4 +1,5 @@
 import { DocApi } from './docApi';
+import { UiHelper } from './uiHelper'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import './styles.css';

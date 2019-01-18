@@ -1,4 +1,4 @@
-let Ui = {
+let UiHelper = {
 
   renderDropdown: function(coinsArray){
     let finalOutput = "";
@@ -37,10 +37,12 @@ let Ui = {
       <div class="card-footer text-muted">
         <a href="${doctor.whitepaper.link}">Whitepaper</a>
       </div>`;
-      document.getElementById('coinCards').append(cardDiv);
+    document.getElementById('coinCards').append(cardDiv);
 
     return cardDiv;
   }
 
 
-}
+};
+
+export { UiHelper };
