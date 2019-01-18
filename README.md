@@ -1,4 +1,4 @@
-  #### FindMd App
+  #### FindMD App
 
   #### By Robert Bruce
 

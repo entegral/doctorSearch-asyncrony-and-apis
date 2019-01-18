@@ -1,6 +1,6 @@
 import { DocApi } from './docApi';
 import { UiHelper } from './uiHelper';
-import { test } from './dummyApiData';
+// import { test } from './spec/dummyApiData';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import './styles.css';
@@ -22,16 +22,6 @@ document.addEventListener('readystatechange', event => {
       params.limit = 10;
       params.first_name = document.getElementById('first_name').value;
       params.last_name = document.getElementById('last_name').value;
-
-      // api.lastResponse = test;
-      // console.log(api.lastResponse);
-      //
-      // for (let i = 0; i < 10; i++){
-      //   let clinic = api.lastResponse.data[i];
-      //   UiHelper.createCard(document, clinic);
-      //
-      // }
-
 
       let searchPromise = api.call(params);
       searchPromise
@@ -55,6 +45,18 @@ document.addEventListener('readystatechange', event => {
           }
 
         });
+
+      // UNCOMMENT BELOW (THEN COMMENT OUT BLOCK ABOVE) TO USE TEST DATA
+      // api.lastResponse = test;
+      // console.log(api.lastResponse);
+      //
+      // for (let i = 0; i < 10; i++){
+      //   let clinic = api.lastResponse.data[i];
+      //   UiHelper.createCard(document, clinic);
+      //
+      // }
+
+
 
 
     });
