@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container-fluid">
+
+      <div class="jumbotron">
+        <h1 class="display-4">coinSnap</h1>
+        <p class="lead">Welcome to coinSnap, an amnesiatic app to check the pulse of your crypto.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+
+          <div class="card text-center">
+            <div class="card-header">
+              Add some coins to get detailed information on them
+            </div>
+            <div class="card-body">
+              <form id="coinForm">
+                <div id="coinDropdown" class="form-group">
+
+                </div>
+                <button class="btn btn-primary" type="submit" name="button">Add Coin</button>
+              </form>
+            </div>
+            <p class="card-text">Total Portfolio Value (USD)</p>
+            <p id="portfolioValue" cass="card-text"></p>
+          </div>
+        </div>
+
+        <div class="col-md-9" id="coinCards">
+
+        </div>
+      </div>
+
+
+    </div>
+  </body>
+</html>
