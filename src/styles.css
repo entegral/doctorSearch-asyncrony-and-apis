@@ -21,7 +21,11 @@
   padding-bottom: 10px;
 }
 
-.coin {
+.doctor {
   float: left;
   margin: 10px;
+}
+
+img {
+  height: 300px;
 }

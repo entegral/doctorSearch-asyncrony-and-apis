@@ -13,31 +13,30 @@ let UiHelper = {
       tempOption.setAttribute("value", tempCoin.id);
       select.appendChild(tempOption);
     }
-    select.append(finalOutput)
+    select.append(finalOutput);
     return select;
   },
 
-  createCard: function(document, doctor){
+  createCard: function(document, clinic){
     let cardDiv = document.createElement('div');
+    console.log("starting on", clinic);
     cardDiv.classList.add('card');
     cardDiv.classList.add('doctor');
     cardDiv.classList.add('text-center');
     cardDiv.setAttribute("style", "width: 18rem;");
-    cardDiv.innerHTML = `<div class="card-header">${doctor.name}</div>
+    cardDiv.innerHTML = `<div class="card-header">${clinic.profile.first_name} ${clinic.profile.last_name}</div>
+    <img src="${clinic.profile.image_url}" alt="">
       <div class="card-body">
-        <h5 class="card-title">Market Capitilization Rank: ${doctor.rank}</h5>
-        <p class="card-text">Price at open: ${doctor.open}</p>
-        <p class="card-text">Price at close: ${doctor.close}</p>
-        <p class="card-text">Daily High: ${doctor.high}</p>
-        <p class="card-text">Daily Low: ${doctor.low}</p>
-        <p class="card-text">24h Volume: ${doctor.volume}</p>
-        <p class="card-text">Marketcap: ${doctor.marketcap}</p>
-        <p class="card-text">${doctor.description}</p>
+        <p class="card-text">${clinic.profile.bio}</p>
+        <h5 class="card-title">${clinic.practices[0].visit_address.city}, ${clinic.practices[0].visit_address.state}</h5>
+        <p class="card-text">${clinic.practices[0].visit_address.street}</p>
+        <p class="card-text">${clinic.practices[0].visit_address.zip}</p>
+        <p class="card-text">${clinic.practices[0].phones[0].number}</p>
       </div>
       <div class="card-footer text-muted">
-        <a href="${doctor.whitepaper.link}">Whitepaper</a>
+        <a href="${clinic.practices[0].website}">Website</a>
       </div>`;
-    document.getElementById('coinCards').append(cardDiv);
+    document.getElementById('doctorCards').append(cardDiv);
 
     return cardDiv;
   }
