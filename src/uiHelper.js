@@ -28,7 +28,8 @@ let UiHelper = {
     cardDiv.innerHTML = `<div class="card-header">${clinic.profile.first_name} ${clinic.profile.last_name}</div>
     <img src="${clinic.profile.image_url}" alt="">
       <div class="card-body">
-        <p class="card-text bio">${clinic.profile.bio}</p>
+        <p class="card-text desc" style="display: block;">Click to Show Bio</p>
+        <p class="card-text bio" style="display: none;">${clinic.profile.bio}</p>
         <h5 class="card-title">${clinic.practices[0].visit_address.city}, ${clinic.practices[0].visit_address.state}</h5>
         <p class="card-text">${clinic.practices[0].visit_address.street}</p>
         <p class="card-text">${clinic.practices[0].visit_address.zip}</p>
@@ -37,6 +38,19 @@ let UiHelper = {
       <div class="card-footer text-muted">
         <a href="${clinic.practices[0].website}">Website</a>
       </div>`;
+
+    cardDiv.addEventListener('click', function() {
+      let bio = cardDiv.querySelectorAll('.bio')[0]
+      let desc = cardDiv.querySelectorAll('.desc')[0]
+      console.log(bio);
+      if (bio.style.display === "none") {
+        bio.style.display = "block";
+        desc.style.display = "none";
+      } else {
+        bio.style.display = "none";
+        desc.style.display = "block"
+      }
+    })
     doctorCardDiv.append(cardDiv);
 
     return cardDiv;
