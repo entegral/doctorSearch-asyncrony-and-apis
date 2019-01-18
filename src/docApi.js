@@ -7,18 +7,17 @@ class DocApi {
   call(params) {
 
     let location = 'location=or-portland';
-    let query = `&query=${params['query']}`;
-    let name = `&name=${params['name']}`;
-    let limit = `&limit=${params['limit']}`;
+    let query = params['query'] ? `&query=${params['query']}` : "";
+    let name = params['name'] ?  `&name=${params['name']}` : "";
+    let limit = params['limit'] ?  `&limit=${params['limit']}` : "";
 
 
-    let promise = new Promise(function(resolve, reject) {
+    let promise = new Promise((resolve, reject) => {
 
       let request = new XMLHttpRequest();
+      const url = `${this.baseUrl}${location}${query}${name}${limit}&user_key=${process.env.API_KEY}`;
 
-      const url = `${this.baseUrl}${location}${query}${name}${limit}${process.env.apiKey}`;
-
-      // console.log("pre-request url: " + url);
+      console.log("pre-request url: " + url);
       request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);

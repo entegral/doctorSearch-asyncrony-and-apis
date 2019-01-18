@@ -22,7 +22,7 @@ module.exports = {
             template: './src/index.html',
             title: 'Tamagatchi',
             inject: 'head'}),
-            new Dotenv()
+        new Dotenv()
         ],
     module: {
         rules: [
