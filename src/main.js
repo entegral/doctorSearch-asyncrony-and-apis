@@ -19,6 +19,7 @@ document.addEventListener('readystatechange', event => {
       event.preventDefault();
       let params = {};
       params.query = document.getElementById('ailment').value;
+      params.limit = 10;
       // params.name = document.getElementById('name').value;
 
       api.lastResponse = test;
@@ -35,8 +36,16 @@ document.addEventListener('readystatechange', event => {
       // searchPromise
       //   .then(function(unparsedApiResponse){
       //     api.lastResponse = JSON.parse(unparsedApiResponse);
+      //     document.getElementById('doctorCards').innerHTML = '';
+      //
+      //     for (let i = 0; i < 10; i++){
+      //       let clinic = api.lastResponse.data[i];
+      //       UiHelper.createCard(document, clinic);
+      //     }
       //
       //   });
+
+
     });
   }
 });

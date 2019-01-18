@@ -18,6 +18,7 @@ let UiHelper = {
   },
 
   createCard: function(document, clinic){
+    let doctorCardDiv = document.getElementById('doctorCards');
     let cardDiv = document.createElement('div');
     console.log("starting on", clinic);
     cardDiv.classList.add('card');
@@ -27,7 +28,7 @@ let UiHelper = {
     cardDiv.innerHTML = `<div class="card-header">${clinic.profile.first_name} ${clinic.profile.last_name}</div>
     <img src="${clinic.profile.image_url}" alt="">
       <div class="card-body">
-        <p class="card-text">${clinic.profile.bio}</p>
+        <p class="card-text bio">${clinic.profile.bio}</p>
         <h5 class="card-title">${clinic.practices[0].visit_address.city}, ${clinic.practices[0].visit_address.state}</h5>
         <p class="card-text">${clinic.practices[0].visit_address.street}</p>
         <p class="card-text">${clinic.practices[0].visit_address.zip}</p>
@@ -36,7 +37,7 @@ let UiHelper = {
       <div class="card-footer text-muted">
         <a href="${clinic.practices[0].website}">Website</a>
       </div>`;
-    document.getElementById('doctorCards').append(cardDiv);
+    doctorCardDiv.append(cardDiv);
 
     return cardDiv;
   }
