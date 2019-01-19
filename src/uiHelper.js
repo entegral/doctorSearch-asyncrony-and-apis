@@ -23,10 +23,16 @@ let UiHelper = {
 
   printSpecialties: function(specialtyArray){
     let stringOutput = "";
+
     specialtyArray.forEach(function(specialty){
       stringOutput += "| " + specialty.actor + " ";
     });
-    return stringOutput + "|";
+
+    if (specialtyArray.length === 0) {
+      return "";
+    } else {
+      return stringOutput + "|";
+    }
   },
 
 
