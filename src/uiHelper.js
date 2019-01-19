@@ -1,22 +1,5 @@
 let UiHelper = {
 
-  renderDropdown: function(coinsArray){
-    let finalOutput = "";
-    let tempCoin;
-    let select = document.createElement("select");
-    select.setAttribute("id", "coinSelect");
-
-    for (let i = 1; i < 51; i++){
-      tempCoin = this.findCoinByRank(coinsArray, i);
-      let tempOption = document.createElement("option");
-      tempOption.innerHTML = tempCoin.name;
-      tempOption.setAttribute("value", tempCoin.id);
-      select.appendChild(tempOption);
-    }
-    select.append(finalOutput);
-    return select;
-  },
-
   errorCard: function(document, error){
     console.log(error);
     const doctorCardDiv = document.getElementById('doctorCards');
@@ -38,6 +21,15 @@ let UiHelper = {
     return p;
   },
 
+  printSpecialties: function(specialtyArray){
+    let stringOutput = "";
+    specialtyArray.forEach(function(specialty){
+      stringOutput += "| " + specialty.actor + " ";
+    });
+    return stringOutput + "|";
+  },
+
+
   createCard: function(document, clinic){
     const doctorCardDiv = document.getElementById('doctorCards');
     const cardDiv = document.createElement('div');
@@ -51,6 +43,7 @@ let UiHelper = {
       <div class="card-body">
         <p class="card-text desc" style="display: block;">Click to Show Bio</p>
         <p class="card-text bio" style="display: none;">${clinic.profile.bio}</p>
+        <p class="card-text specialties">${this.printSpecialties(clinic.specialties)}</p>
         <p class="card-text">${clinic.practices[0].accepts_new_patients ? "Accepting Patients" : "Not Accepting Patients"}</p>
         <h5 class="card-title">${clinic.practices[0].visit_address.city}, ${clinic.practices[0].visit_address.state}</h5>
         <p class="card-text">${clinic.practices[0].visit_address.street}</p>

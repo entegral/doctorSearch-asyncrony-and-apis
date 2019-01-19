@@ -1,10 +1,11 @@
 import { DocApi } from './docApi';
 import { UiHelper } from './uiHelper';
+
+
 // import { test } from './spec/dummyApiData';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import './styles.css';
-
 
 let api = new DocApi();
 
@@ -13,7 +14,7 @@ document.addEventListener('readystatechange', event => {
 
 
 
-    let doctorForm = document.getElementById('doctorForm');
+    const doctorForm = document.getElementById('doctorForm');
 
     doctorForm.addEventListener('submit', function(event){
       event.preventDefault();
@@ -22,6 +23,8 @@ document.addEventListener('readystatechange', event => {
       params.limit = 10;
       params.first_name = document.getElementById('first_name').value;
       params.last_name = document.getElementById('last_name').value;
+      params.zip = document.getElementById('zip').value;
+      params.range = document.getElementById('range').value;
 
       let searchPromise = api.call(params);
       searchPromise

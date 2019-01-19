@@ -1,3 +1,5 @@
+const zipcodes = require('zipcodes');
+
 class DocApi {
   constructor() {
     this.lastResponse = null;
@@ -6,7 +8,9 @@ class DocApi {
 
   call(params) {
 
-    let location = 'location=or-portland';
+    let zone = zipcodes.lookup(params['zip']);
+    let range = params['range'];
+    let location = `location=${zone.latitude}%2C${zone.longitude}%2C${range}`;
     let query = params['query'] ? `&query=${params['query']}` : "";
     let first_name = params['first_name'] ?  `&first_name=${params['first_name']}` : "";
     let last_name = params['last_name'] ?  `&last_name=${params['last_name']}` : "";
