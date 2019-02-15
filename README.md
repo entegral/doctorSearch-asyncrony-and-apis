@@ -64,7 +64,7 @@
 
   ## Support and contact details
 
-  If you have any questions or issues, please contact perrysbrooke@gmail.com or e2robby@gmail.com. Or, feel free to contribute to the code.
+  If you have any questions or issues, please contact e2robby@gmail.com. Or, feel free to contribute to the code.
 
   ## Technologies Used
 
